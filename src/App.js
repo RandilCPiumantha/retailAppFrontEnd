@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import ProductForm from "./Components/ProductFrom.jsx";
+import ProductList from "./Components/ProductList.jsx";
 
-function App() {
+const App = () => {
+  const handleProductAdded = () => {
+    // Refresh product list or trigger a fetch
+    window.location.reload(); // Simple way to refresh the page (or you could lift state up)
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Product Management</h1>
+      <ProductForm onProductAdded={handleProductAdded} />
+      <ProductList />
     </div>
   );
-}
+};
 
 export default App;
